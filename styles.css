@@ -1,0 +1,65 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #003366;
+}
+
+#space {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.imgur.com/jvqnV0s.png');
+    position: relative;
+    overflow: hidden;
+}
+
+#nyan-cat {
+    width: 100px;
+    height: 70px;
+    background-image: url('https://i.imgur.com/vbGVPgG.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+}
+
+#rainbow {
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    right: 80%;
+    left: -100%;
+    background: linear-gradient(
+        to bottom,
+        #ff0000, #ff0000 16.67%,
+        #ff9900 16.67%, #ff9900 33.33%,
+        #ffff00 33.33%, #ffff00 50%,
+        #33ff00 50%, #33ff00 66.67%,
+        #0099ff 66.67%, #0099ff 83.33%,
+        #6633ff 83.33%, #6633ff 100%
+    );
+    transform: translateY(-50%);
+    animation: rainbow-move 0.5s linear infinite;
+}
+
+@keyframes rainbow-move {
+    0% { transform: translateY(-50%) translateX(0); }
+    100% { transform: translateY(-50%) translateX(20px); }
+}
+
+#start-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #FF66FF;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
