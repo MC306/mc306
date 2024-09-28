@@ -13,6 +13,7 @@
             text-align: center;
             margin: 0;
             padding: 0;
+            cursor: none;
         }
         .container {
             width: 800px;
@@ -48,6 +49,19 @@
             display: inline-block;
             margin-top: 20px;
         }
+        #custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .rainbow-trail {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+        }
     </style>
 </head>
 <body>
@@ -61,6 +75,49 @@
         <p>Join the Nyan Cat revolution and blast off to the moon with the coolest cat in the crypto universe!</p>
         <a href="#" class="button">Get Your Nyan Tokens Meow!</a>
     </div>
-    <audio autoplay loop>
-        <source src="https://www.nyan.cat/music/original
+    <audio id="nyan-music" loop>
+        <source src="https://www.nyan.cat/music/original.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div id="custom-cursor"></div>
+    <script>
+        // Play music on page load
+        window.onload = function() {
+            document.getElementById('nyan-music').play();
+        }
 
+        // Custom cursor with rainbow trail
+        const cursor = document.getElementById('custom-cursor');
+        const colors = ['#FF0000', '#FF9900', '#FFFF00', '#33FF00', '#0099FF', '#6633FF'];
+        let trails = [];
+
+        cursor.innerHTML = '<img src="https://www.nyan.cat/cats/original.gif" width="30" height="20">';
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+
+            const trail = document.createElement('div');
+            trail.className = 'rainbow-trail';
+            trail.style.left = e.clientX + 'px';
+            trail.style.top = e.clientY + 'px';
+            trail.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.appendChild(trail);
+            trails.push(trail);
+
+            if (trails.length > 20) {
+                const oldestTrail = trails.shift();
+                oldestTrail.remove();
+            }
+
+            setTimeout(() => {
+                trail.style.opacity = '0';
+            }, 100);
+
+            setTimeout(() => {
+                trail.remove();
+            }, 200);
+        });
+    </script>
+</body>
+</html>
