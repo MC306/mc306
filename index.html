@@ -69,12 +69,16 @@
           height :100% ; 
           background-color :rgba(255 ,255 ,255 ,0.5); /* Semi-transparent white */
           z-index :10000 ; /* On top of everything */
-          animation:ripple-effect .5s ease-out infinite alternate ;
       }
 
-      @keyframes ripple-effect{
-           from{background-color :rgba(255 ,255 ,255 ,0.5);}
-           to{background-color :rgba(255 ,165 ,0 ,0.5);} /* Semi-transparent orange */
+      @keyframes rainbow-flash {
+          0% {background-color :rgba(255 ,0 ,0 ,0.5);} /* Red */
+          16% {background-color :rgba(255 ,165 ,0 ,0.5);} /* Orange */
+          33% {background-color :rgba(255 ,255 ,0 ,0.5);} /* Yellow */
+          50% {background-color :rgba(0 ,128 ,0 ,0.5);} /* Green */
+          66% {background-color :rgba(0 ,0 ,255 ,0.5);} /* Blue */
+          83% {background-color :rgba(75 ,0 ,130 ,0.5);} /* Indigo */
+          100% {background-color :rgba(238 ,130 ,238 ,0.5);} /* Violet */
       }
 
       @media only screen and (max-width :600 px){
@@ -148,8 +152,9 @@
     nyanCatImage.addEventListener('click', () => {
       audio.play();
       rainbowFlash.style.display = 'block'; // Show flash effect
-      setTimeout(() => { rainbowFlash.style.display = 'none'; }, 500); // Hide after effect
-      nyanCatImage.style.opacity = '0.5'; // Dim image to indicate it's been used
+      rainbowFlash.style.animation = 'rainbow-flash 2s infinite'; // Start animation
+      setTimeout(() => { rainbowFlash.style.display = 'none'; }, 2000); // Hide after effect
+      nyanCatImage.style.opacity = '1'; // Keep image fully visible
     });
     
     </script>
