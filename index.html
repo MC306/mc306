@@ -49,6 +49,15 @@
             pointer-events: none;
             z-index: 9999;
         }
+        .rainbow-trail {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: opacity 0.2s;
+        }
     </style>
 </head>
 <body>
@@ -91,9 +100,6 @@
             trail.remove();
         }, 200);
     });
-
-    const audio = document.getElementById('nyan-music');
-    document.addEventListener('click', () => {
-        audio.play();
-    });
-</script>
+    </script>
+</body>
+</html>
