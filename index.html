@@ -3,112 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyan Cat Token - Blast from the Past!</title>
+    <title>Nyan Cat's Moon Mission</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #000000;
-            background-image: url('https://www.nyan.cat/cats/original.gif');
-            font-family: 'Comic Sans MS', cursive;
-            color: #FF00FF;
-            text-align: center;
+        body, html {
             margin: 0;
             padding: 0;
+            height: 100%;
+            font-family: 'Press Start 2P', cursive;
+            background-color: #003366;
+            color: #FFFFFF;
+            overflow-x: hidden;
             cursor: none;
         }
-        .container {
-            width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border: 5px solid #00FFFF;
-            border-radius: 10px;
-        }
-        h1 {
-            font-size: 48px;
-            text-shadow: 2px 2px #00FFFF;
-        }
-        .blink {
-            animation: blinker 1s linear infinite;
-        }
-        @keyframes blinker {
-            50% { opacity: 0; }
-        }
-        .marquee {
-            background-color: #000000;
-            color: #00FF00;
-            padding: 10px;
-            font-size: 24px;
-        }
-        .button {
-            background-color: #FF00FF;
-            color: #FFFFFF;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 20px;
-        }
-        #custom-cursor {
+        #stars {
             position: fixed;
-            pointer-events: none;
-            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            animation: twinkle 10s infinite linear;
         }
-        .rainbow-trail {
+        @keyframes twinkle {
+            0% {background-position: 0 0, 0 0, 0 0;}
+            100% {background-position: 550px 550px, 350px 350px, 250px 250px;}
+        }
+        #nyan-cats {
             position: fixed;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-        }
-    </style>
-</head>
-<body>
-    <div class="marquee">
-        <marquee>Welcome to the totally rad world of Nyan Cat Token on Solana! It's gonna be purrfect!</marquee>
-    </div>
-    <div class="container">
-        <h1>Nyan Cat Token</h1>
-        <p class="blink">The most meow-velous token on Solana!</p>
-        <img src="https://www.nyan.cat/cats/original.gif" alt="Nyan Cat" width="300">
-        <p>Join the Nyan Cat revolution and blast off to the moon with the coolest cat in the crypto universe!</p>
-        <a href="nyan.html" class="button">Get Your Nyan Tokens Meow!</a>
-    </div>
-    <div id="custom-cursor"></div>
-    <script>
-        // Custom cursor with rainbow trail
-        const cursor = document.getElementById('custom-cursor');
-        const colors = ['#FF0000', '#FF9900', '#FFFF00', '#33FF00', '#0099FF', '#6633FF'];
-        let trails = [];
-
-        cursor.innerHTML = '<img src="https://www.nyan.cat/cats/original.gif" width="30" height="20">';
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-
-            const trail = document.createElement('div');
-            trail.className = 'rainbow-trail';
-            trail.style.left = e.clientX + 'px';
-            trail.style.top = e.clientY + 'px';
-            trail.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            document.body.appendChild(trail);
-            trails.push(trail);
-
-            if (trails.length > 20) {
-                const oldestTrail = trails.shift();
-                oldestTrail.remove();
-            }
-
-            setTimeout(() => {
-                trail.style.opacity = '0';
-            }, 100);
-
-            setTimeout(() => {
-                trail.remove();
-            }, 200);
-        });
-    </script>
-</body>
-</html>
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('https://www.nyan.cat/cats/original.gif') repeat-x;
+            animation: slide
