@@ -60,46 +60,36 @@
             z-index: 9998;
             transition: opacity 0.2s;
         }
-        
+        #music-button {
+            position: fixed;
+            top: 20px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            width: 80px; 
+            height: 80px; 
+            background-image: url('https://i.postimg.cc/tgJVM445/SIX-827-C9200-457-C-47-F1-A0-B3-FB3877-EB93-BA.png');
+            background-size: cover; 
+            border: none; 
+            cursor: pointer; 
+        }
+
         @media only screen and (max-width: 600px) {
-            body {
-                font-size: 10px;
-                padding-top: 5%;
-                padding-bottom: 5%;
-                overflow-x:hidden; 
-                overflow-y:auto; 
-                height:auto; 
-                min-height:auto; 
-                max-height:auto; 
-                min-width:auto; 
-                max-width:auto; 
-                width:auto; 
-                position:absolute; 
-                top:auto; 
-                bottom:auto; 
-                left:auto; 
-                right:auto; 
-                background-attachment
-                 fixed
-                 ;background-position
-                 center
-                 ;background-repeat
-                 no-repeat
-                 ;background-size
-                 cover
-                 ;border:none;margin
-                 auto;padding
-                 auto;text-align
-                 center;text-decoration
-                 none;text-transform
-                 uppercase;font-family:'Press Start
-                 '2P',cursive;font-size:'12';font-weight:bold;color:'#000';text-shadow:'1';display:'flex';align-items:'center';justify-content:'center';padding-bottom:'5';text-decoration:'none'}.container{width:auto;height:auto;margin-top:auto;padding-top:auto;padding-bottom:auto;padding-left:auto;padding-right:auto;border:none;border-radius:none;background-color:none;background-image:none;background-position:none;background-repeat:none;background-size:none}.button{width:auto;height:auto;margin-top:auto;padding-top:auto;padding-bottom:auto;padding-left:auto;padding-right:auto;border:none;border-radius:none;background-color:none;background-image:none;background-position:none;background-repeat:none;background-size:none}h1{font-size:auto;margin-top:auto;margin-bottom:auto;margin-left:auto;margin-right:auto;text-shadow:none}p{font-size:auto;margin-top:auto;margin-bottom:auto;margin-left:auto;margin-right:auto;text-align:center}img[alt="Nyan Cat"]{width:
-80%;max-width:
-300 px;height:
-auto}}#custom-cursor img{width:
-20 px;height:
-15 px}
-</style>
+          .container {
+              width:auto; /* Adjusted to use percentage */
+              margin-top:auto; /* Simplified */
+          }
+          h1, p, .button {
+              font-size:auto; /* Simplified */
+          }
+          img[alt="Nyan Cat"] {
+              width:auto; /* Simplified */
+              max-width:auto; /* Simplified */
+          }
+          #custom-cursor img {
+              width:auto; /* Simplified */
+              height:auto; /* Simplified */
+          }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -108,7 +98,11 @@ auto}}#custom-cursor img{width:
         <p>Join the Nyan Cat revolution!</p>
         <a href="nyan.html" class="button">Get Your Nyan Tokens Meow!</a>
     </div>
+    <button id="music-button"></button> <!-- Ensure this button is present -->
     <div id="custom-cursor"></div>
+    <audio id="nyan-music" loop>
+        <source src="https://www.nyan.cat/music/original.mp3" type="audio/mpeg">
+    </audio>
     <script>
     const cursor = document.getElementById('custom-cursor');
     cursor.innerHTML = '<img src="https://www.nyan.cat/cats/original.gif" width="30" height="20">';
@@ -141,6 +135,17 @@ auto}}#custom-cursor img{width:
             trail.remove();
         }, 200);
     });
+
+    const audio = document.getElementById('nyan-music');
+    const musicButton = document.getElementById('music-button');
+
+    musicButton.addEventListener('click', () => {
+      audio.play();
+      musicButton.innerText = 'Music Playing!';
+      musicButton.disabled = true; // Disable button after playing
+      musicButton.style.opacity = '0.5'; // Dim button to indicate it's been used
+    });
+    
     </script>
 </body>
 </html>
