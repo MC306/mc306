@@ -9,25 +9,21 @@ body, html {
 #space {
     width: 100%;
     height: 100%;
-    background-image: url('https://i.imgur.com/jvqnV0s.png');
+    background-image: url('https://cdn.jsdelivr.net/gh/StephenWeiXu/random-image-repository/star-background.png');
     position: relative;
     overflow: hidden;
 }
 
 #nyan-cat {
-   #nyan-cat {
     width: 100px;
     height: 70px;
-    background-image: url('nyan-cat.gif'); /* If hosted in your repository */
-    /* Or use a CDN link */
-    /* background-image: url('https://cdn.jsdelivr.net/gh/jnordberg/gif.js/site/nyan.gif'); */
+    background-image: url('https://www.nyan.cat/cats/original.gif');
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
     top: 50%;
     left: 20%;
     transform: translateY(-50%);
-}
 }
 
 #rainbow {
@@ -66,4 +62,18 @@ body, html {
     border: none;
     border-radius: 5px;
     color: white;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle linear infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
 }
