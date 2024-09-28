@@ -9,6 +9,8 @@
         body {
             background-color: #000000;
             background-image: url('https://www.nyan.cat/cats/original.gif');
+            background-size: cover;
+            background-attachment: fixed;
             font-family: 'Press Start 2P', cursive;
             color: #FF00FF;
             text-align: center;
@@ -17,7 +19,8 @@
             cursor: none;
         }
         .container {
-            width: 800px;
+            width: 90%;
+            max-width: 800px;
             margin: 20px auto;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.7);
@@ -57,6 +60,37 @@
             pointer-events: none;
             z-index: 9998;
             transition: opacity 0.2s;
+        }
+        
+        @media only screen and (max-width: 600px) {
+            body {
+                font-size: 10px;
+            }
+            .container {
+                width: 90%;
+                margin: 10px auto;
+                padding: 10px;
+            }
+            h1 {
+                font-size: 18px;
+            }
+            p {
+                font-size: 10px;
+                line-height: 1.4;
+            }
+            .button {
+                padding: 8px 16px;
+                font-size: 10px;
+            }
+            #custom-cursor img {
+                width: 20px;
+                height: 15px;
+            }
+            img[alt="Nyan Cat"] {
+                width: 80%;
+                max-width: 300px;
+                height: auto;
+            }
         }
     </style>
 </head>
