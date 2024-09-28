@@ -15,15 +15,19 @@ body, html {
 }
 
 #nyan-cat {
+   #nyan-cat {
     width: 100px;
     height: 70px;
-    background-image: url('https://i.imgur.com/vbGVPgG.gif');
+    background-image: url('nyan-cat.gif'); /* If hosted in your repository */
+    /* Or use a CDN link */
+    /* background-image: url('https://cdn.jsdelivr.net/gh/jnordberg/gif.js/site/nyan.gif'); */
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
     top: 50%;
     left: 20%;
     transform: translateY(-50%);
+}
 }
 
 #rainbow {
