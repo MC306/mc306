@@ -38,7 +38,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100px;
+            height: 150px;
             background: url('https://www.nyan.cat/cats/original.gif') repeat-x;
             animation: slide 10s linear infinite;
             z-index: 2;
@@ -99,22 +99,46 @@
         </div>
     </div>
     <div id="custom-cursor"></div>
+    <script>
+    const cursor = document.getElementById('custom-cursor');
+    cursor.innerHTML = '<img src="https://www.nyan.cat/cats/original.gif" width="30" height="20">';
+
+    const colors = ['#FF0000', '#FF9900', '#FFFF00', '#33FF00', '#0099FF', '#6633FF'];
+    let trails = [];
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+
+        const trail = document.createElement('div');
+        trail.className = 'rainbow-trail';
+        trail.style.left = e.clientX + 'px';
+        trail.style.top = e.clientY + 'px';
+        trail.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        document.body.appendChild(trail);
+        trails.push(trail);
+
+        if (trails.length > 20) {
+            const oldestTrail = trails.shift();
+            oldestTrail.remove();
+        }
+
+        setTimeout(() => {
+            trail.style.opacity = '0';
+        }, 100);
+
+        setTimeout(() => {
+            trail.remove();
+        }, 200);
+    });
+</script>
     <audio id="nyan-music" loop>
         <source src="https://www.nyan.cat/music/original.mp3" type="audio/mpeg">
     </audio>
     <script>
-        const cursor = document.getElementById('custom-cursor');
-        cursor.innerHTML = '<img src="https://www.nyan.cat/cats/original.gif" width="30" height="20">';
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        const audio = document.getElementById('nyan-music');
-        document.addEventListener('click', () => {
-            audio.play();
-        });
-    </script>
-</body>
-</html>
+        <script>
+    const audio = document.getElementById('nyan-music');
+    document.addEventListener('click', () => {
+        audio.play();
+    });
+</script>
