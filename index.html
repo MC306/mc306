@@ -3,19 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyan Cat Animation</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Nyan Cat Token - Blast from the Past!</title>
+    <style>
+        body {
+            background-color: #000000;
+            background-image: url('https://www.nyan.cat/cats/original.gif');
+            font-family: 'Comic Sans MS', cursive;
+            color: #FF00FF;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 5px solid #00FFFF;
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 48px;
+            text-shadow: 2px 2px #00FFFF;
+        }
+        .blink {
+            animation: blinker 1s linear infinite;
+        }
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+        .marquee {
+            background-color: #000000;
+            color: #00FF00;
+            padding: 10px;
+            font-size: 24px;
+        }
+        .button {
+            background-color: #FF00FF;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div id="space">
-        <div id="nyan-cat"></div>
-        <div id="rainbow"></div>
+    <div class="marquee">
+        <marquee>Welcome to the totally rad world of Nyan Cat Token on Solana! It's gonna be purrfect!</marquee>
     </div>
-    <audio id="nyan-music" loop>
-        <source src="https://www.nyan.cat/music/original.mp3" type="audio/mpeg">
-    </audio>
-    <button id="start-button">Start Nyan Cat!</button>
-    <script src="script.js"></script>
-</body>
-</html>
+    <div class="container">
+        <h1>Nyan Cat Token</h1>
+        <p class="blink">The most meow-velous token on Solana!</p>
+        <img src="https://www.nyan.cat/cats/original.gif" alt="Nyan Cat" width="300">
+        <p>Join the Nyan Cat revolution and blast off to the moon with the coolest cat in the crypto universe!</p>
+        <a href="#" class="button">Get Your Nyan Tokens Meow!</a>
+    </div>
+    <audio autoplay loop>
+        <source src="https://www.nyan.cat/music/original
 
