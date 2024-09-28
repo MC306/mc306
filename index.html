@@ -29,7 +29,12 @@
         h1 {
             font-size: 24px;
             text-shadow: 2px 2px #00FFFF;
-            margin-bottom: 20px;
+            margin-bottom: 10px; /* Reduced margin */
+        }
+        #click-me-text {
+            font-size: 10px; /* Smaller font size */
+            color: #FFFFFF; /* Text color */
+            margin-bottom: 15px; /* Space below the text */
         }
         p {
             font-size: 12px;
@@ -81,14 +86,6 @@
           100% {background-color :rgba(238 ,130 ,238 ,0.5);} /* Violet */
       }
 
-      .click-me-text {
-          font-size: 14px; /* Adjust size as needed */
-          color: #FFFFFF; /* Text color */
-          position: absolute; 
-          top: calc(50% - 170px); /* Adjust to position above the cat */
-          left: calc(50% - 100px); /* Center horizontally */
-      }
-
       @media only screen and (max-width :600 px){
           .container {
               width:auto; /* Adjusted to use percentage */
@@ -112,12 +109,11 @@
     <div id="rainbow-flash"></div> <!-- Flash effect -->
     <div class="container">
         <h1>$NYAN on Solana</h1>
-        <div class="click-me-text">Click me for a surprise!</div> <!-- Text pointing to Nyan Cat -->
+        <div id="click-me-text">Click me for a surprise!</div> <!-- Text below the title -->
         <img id="nyan-cat" src="https://www.nyan.cat/cats/original.gif" alt="Nyan Cat" width="300"> <!-- Added id for click event -->
         <p>Join the Nyan Catvolution!</p>
         <a href="nyan.html" class="button" id="nyan-button">Get Your $NYAN Meow!</a>
     </div>
-
     <div id="custom-cursor"></div>
     <audio id="nyan-music" loop>
         <source src="https://www.nyan.cat/music/original.mp3" type="audio/mpeg">
