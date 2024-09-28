@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyan Cat World</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            cursor: none;
+        }
+        #nyan-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.nyan.cat/cats/original.gif') repeat-x;
+            animation: slide 10s linear infinite;
+        }
+        @keyframes slide {
+            from { background-position: 0 0; }
+            to { background-position: -1000px 0; }
+        }
+        #custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .rainbow-trail {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+        }
+    </style>
+</head>
+<body>
+    <div id="nyan-background"></div>
+    <div id="custom-cursor"></div>
+    <audio id="nyan-music" loop autoplay>
+        <source src="https://www.nyan.cat/music/original.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        // Play music on page load
+        window.onload = function() {
+            document.getElementById('nyan-music').play();
+        }
+
+        // Custom cursor with rainbow trail
+        const cursor = document.getElementById('custom-cursor');
+        const colors = ['#FF0000', '#FF9900', '#FFFF00', '#33FF00', '#0099FF', '#6633FF'];
+        let trails = [];
+
+        cursor.innerHTML = '<img src="https://www.nyan.cat/cats/original.gif" width="30" height="20">';
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+
+            const trail = document.createElement('div');
+            trail.className = 'rainbow-trail';
+            trail.style.left = e.clientX + 'px';
+            trail.style.top = e.clientY + 'px';
+            trail.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.appendChild(trail);
+            trails.push(trail);
+
+            if (trails.length > 20) {
+                const oldestTrail = trails.shift();
+                oldestTrail.remove();
+            }
+
+            setTimeout(() => {
+                trail.style.opacity = '0';
+            }, 100);
+
+            setTimeout(() => {
+                trail.remove();
+            }, 200);
+        });
+    </script>
+</body>
+</html>
