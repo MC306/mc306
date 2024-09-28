@@ -81,29 +81,13 @@
           100% {background-color :rgba(238 ,130 ,238 ,0.5);} /* Violet */
       }
 
-      .speech-bubble {
-          position:absolute; 
-          top :calc(50%-150 px);/* Adjust to position above the cat */left
-           calc(50%-200 px);/* Center horizontally */width
-           auto;height
-           auto;padding
-           (10 px);background-color
-           rgba
-           (255,255,255,0.8);border-radius
-           (10 px);box-shadow
-           (2 px 2 px #000);font-size
-           (14 px);color
-           (#000);text-align
-           (center);z-index
-           (10000);/* Above everything else */display
-           flex;align-items
-           center;justify-content
-           center}.speech-bubble::after{content:'';position:absolute;bottom:-20 px;left
-           calc(50%-10 px);border-width
-           (10 px);border-style
-           solid;border-color
-           rgba
-           (255,255,255,0.8)transparent transparent transparent}
+      .click-me-text {
+          font-size: 14px; /* Adjust size as needed */
+          color: #FFFFFF; /* Text color */
+          position: absolute; 
+          top: calc(50% - 170px); /* Adjust to position above the cat */
+          left: calc(50% - 100px); /* Center horizontally */
+      }
 
       @media only screen and (max-width :600 px){
           .container {
@@ -128,11 +112,11 @@
     <div id="rainbow-flash"></div> <!-- Flash effect -->
     <div class="container">
         <h1>$NYAN on Solana</h1>
+        <div class="click-me-text">Click me for a surprise!</div> <!-- Text pointing to Nyan Cat -->
         <img id="nyan-cat" src="https://www.nyan.cat/cats/original.gif" alt="Nyan Cat" width="300"> <!-- Added id for click event -->
         <p>Join the Nyan Catvolution!</p>
         <a href="nyan.html" class="button" id="nyan-button">Get Your $NYAN Meow!</a>
     </div>
-    <div class="speech-bubble">Click me for a party!</div> <!-- Text bubble pointing to Nyan Cat -->
 
     <div id="custom-cursor"></div>
     <audio id="nyan-music" loop>
