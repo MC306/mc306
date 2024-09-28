@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyan Cat Token - Blast from the Past!</title>
+    <title>Nyan Cat's Moon Mission</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         body {
@@ -62,17 +62,35 @@
         }
         #music-button {
             position: fixed;
-            top: 20px; /* Adjust as needed */
-            right: 20px; /* Adjust as needed */
+            top: 20px; 
+            right: 20px; 
             width: 80px; 
             height: 80px; 
             background-image: url('https://i.postimg.cc/tgJVM445/SIX-827-C9200-457-C-47-F1-A0-B3-FB3877-EB93-BA.png');
             background-size: cover; 
             border: none; 
             cursor: pointer; 
+            color: white; 
+            font-size: 10px; 
         }
+        #rainbow-flash {
+          display:none; /* Initially hidden */
+          position:absolute; 
+          top :0 ; 
+          left :0 ; 
+          width :100% ; 
+          height :100% ; 
+          background-color :rgba(255 ,255 ,255 ,0.5); /* Semi-transparent white */
+          z-index :10000 ; /* On top of everything */
+          animation:ripple-effect .5 s ease-out infinite alternate ;
+      }
 
-        @media only screen and (max-width: 600px) {
+      @keyframes ripple-effect{
+           from{background-color :rgba(255 ,255 ,255 ,0.5);}
+           to{background-color :rgba(255 ,165 ,0 ,0.5);} /* Semi-transparent orange */
+      }
+
+        @media only screen and (max-width :600 px){
           .container {
               width:auto; /* Adjusted to use percentage */
               margin-top:auto; /* Simplified */
@@ -98,8 +116,9 @@
         <p>Join the Nyan Cat revolution!</p>
         <a href="nyan.html" class="button">Get Your Nyan Tokens Meow!</a>
     </div>
-    <button id="music-button"></button> <!-- Ensure this button is present -->
+    <button id="music-button">Press for a Party</button> <!-- Added text -->
     <div id="custom-cursor"></div>
+    <div id="rainbow-flash"></div> <!-- Flash effect -->
     <audio id="nyan-music" loop>
         <source src="https://www.nyan.cat/music/original.mp3" type="audio/mpeg">
     </audio>
@@ -138,9 +157,12 @@
 
     const audio = document.getElementById('nyan-music');
     const musicButton = document.getElementById('music-button');
+    const rainbowFlash = document.getElementById('rainbow-flash');
 
     musicButton.addEventListener('click', () => {
       audio.play();
+      rainbowFlash.style.display = 'block'; // Show flash effect
+      setTimeout(() => { rainbowFlash.style.display = 'none'; }, 500); // Hide after effect
       musicButton.innerText = 'Music Playing!';
       musicButton.disabled = true; // Disable button after playing
       musicButton.style.opacity = '0.5'; // Dim button to indicate it's been used
