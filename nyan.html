@@ -20,7 +20,7 @@
         .container {
             width: 90%;
             max-width: 800px;
-            margin: 20px auto;
+            margin: 5% auto;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.7);
             border: 5px solid #00FFFF;
@@ -39,119 +39,7 @@
         .button {
             background-color: #FF00FF;
             color: #FFFFFF;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 12px;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 20px;
-        }
-        #custom-cursor {
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-        }
-        .rainbow-trail {
-            position: fixed;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transition: opacity 0.2s;
-        }
-        #music-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 80px;
-            height: 80px;
-            background-image: url('https://i.postimg.cc/tgJVM445/SIX-827-C9200-457-C-47-F1-A0-B3-FB3877-EB93-BA.png');
-            background-size: cover;
-            border: none;
-            cursor: pointer;
-        }
-        
-        @media only screen and (max-width: 600px) {
-            body {
-                font-size: 10px;
-                padding-top: 5%;
-                padding-bottom: 5%;
-                overflow-x:hidden; 
-                overflow-y:auto; 
-                height:auto; 
-                min-height:auto; 
-                max-height:auto; 
-                min-width:auto; 
-                max-width:auto; 
-                width:auto; 
-                position:absolute; 
-                top:auto; 
-                bottom:auto; 
-                left:auto; 
-                right:auto; 
-                background-attachment
-                 fixed
-                 ;background-position
-                 center
-                 ;background-repeat
-                 no-repeat
-                 ;background-size
-                 cover
-                 ;border:none;margin
-                 auto;padding
-                 auto;text-align
-                 center;text-decoration
-                 none;text-transform
-                 uppercase;font-family:'Press Start
-                 '2P',cursive;font-size:'12';font-weight:bold;color:'#000';text-shadow:'1';display:'flex';align-items:'center';justify-content:'center';padding-bottom:'5';text-decoration:'none'}.container{width:auto;height:auto;margin-top:auto;padding-top:auto;padding-bottom:auto;padding-left:auto;padding-right:auto;border:none;border-radius:none;background-color:none;background-image:none;background-position:none;background-repeat:none;background-size:none}.button{width:auto;height:auto;margin-top:auto;padding-top:auto;padding-bottom:auto;padding-left:auto;padding-right:auto;border:none;border-radius:none;background-color:none;background-image:none;background-position:none;background-repeat:none;background-size:none}h1{font-size:auto;margin-top:auto;margin-bottom:auto;margin-left:auto;margin-right:auto;text-shadow:none}p{font-size:auto;margin-top:auto;margin-bottom:auto;margin-left:auto;margin-right:auto;text-align:center}img[alt="Nyan Cat"]{width:
-80%;max-width:
-300 px;height:
-auto}}#custom-cursor img{width:
-20 px;height:
-15 px}
-</style>
-</head>
-<body>
-    <div class="container">
-        <h1>Nyan Cat Token</h1>
-        <img src="https://www.nyan.cat/cats/original.gif" alt="Nyan Cat" width="300">
-        <p>Join the Nyan Cat revolution!</p>
-        <a href="nyan.html" class="button">Get Your Nyan Tokens Meow!</a>
-    </div>
-    <button id="music-button"></button>
-    <div id="custom-cursor"></div>
-    <audio id="nyan-music" loop>
-        <source src="https://www.nyan.cat/music/original.mp3" type="audio/mpeg">
-    </audio>
-    <script>
-    const cursor = document.getElementById('custom-cursor');
-    cursor.innerHTML = '<img src="https://www.nyan.cat/cats/original.gif" width="30" height="20">';
-
-    const colors = ['#FF0000', '#FF9900', '#FFFF00', '#33FF00', '#0099FF', '#6633FF'];
-    let trails = [];
-
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-
-        const trail = document.createElement('div');
-        trail.className = 'rainbow-trail';
-        trail.style.left = e.clientX + 'px';
-        trail.style.top = e.clientY + 'px';
-        trail.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-        document.body.appendChild(trail);
-        trails.push(trail);
-
-        if (trails.length > 20) {
-            const oldestTrail = trails.shift();
-            oldestTrail.remove();
-        }
-
-        setTimeout(() => {
-            trail.style.opacity = '0';
-        }, 100);
-
+            
         setTimeout(() => {
             trail.remove();
         }, 200);
@@ -159,7 +47,7 @@ auto}}#custom-cursor img{width:
 
     const audio = document.getElementById('nyan-music');
     const musicButton = document.getElementById('music-button');
-
+    
     musicButton.addEventListener('click', () => {
       audio.play();
       musicButton.innerText = 'Music Playing!';
@@ -170,3 +58,4 @@ auto}}#custom-cursor img{width:
     </script>
 </body>
 </html>
+
