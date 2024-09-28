@@ -111,6 +111,24 @@
             padding-bottom: 5px;
             text-decoration: none;
         }
+#music-button {
+          position :fixed ;
+          top :20 px ;
+          right :20 px ;
+          width :80 px ;
+          height :80 px ;
+          background-image :url ('https://i.postimg.cc/tgJVM445/SIX-827-C9200-457-C-47-F1-A0-B3-FB3877-EB93-BA.png') ;
+          background-size :cover ;
+          border :none ;
+          cursor :pointer ;
+          display :flex ;
+          align-items :center ;
+          justify-content :center ;
+          color :#fff ;
+          font-size :10 px ;
+          text-shadow :1 px 1 px #000 ;
+       }
+
         @media only screen and (max-width: 600px) {
             #nyan-cats {
                 height: 100px;
@@ -153,6 +171,7 @@
         <p>Nyan Cat is already a space explorer extraordinaire, we're taking things to the next level. Our mission? To reach the moon and beyond, just like Nyan Cat did with internet fame years ago!</p>
         <p>Join us as we embark on this cosmic journey, spreading rainbows and joy across the galaxy, and showing these new memecoins how it's really done!</p>
     </div>
+    <button id="music-button">Press me for music!</button>
     <div id="custom-cursor"></div>
     <div id="bottom-buttons">
         <a href="https://pump.fun" class="nyan-button" target="_blank">pump.fun</a>
@@ -197,9 +216,15 @@
     });
 
     const audio = document.getElementById('nyan-music');
-    document.addEventListener('click', () => {
-        audio.play();
+    const musicButton = document.getElementById('music-button');
+    
+    musicButton.addEventListener('click', () => {
+      audio.play();
+      musicButton.innerText = 'Music Playing!';
+      musicButton.disabled = true; // Disable button after playing
+      musicButton.style.opacity = '0.5'; // Dim button to indicate it's been used
     });
+    
     </script>
 </body>
 </html>
