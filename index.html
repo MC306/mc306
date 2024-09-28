@@ -81,23 +81,25 @@
           100% {background-color :rgba(238 ,130 ,238 ,0.5);} /* Violet */
       }
 
-      .click-me-text {
-          font-size: 14px; /* Adjust size as needed */
-          color: #FFFFFF; /* Text color */
-          position: absolute; 
-          top: calc(50% - 150px); /* Adjust to position above the cat */
-          left: calc(50% - 100px); /* Center horizontally */
-      }
-
-      .arrow {
-          width: 100px; 
-          height:auto; 
+      .speech-bubble {
           position:absolute; 
-          top :calc(50%-120 px);/* Adjust to point to the cat */left
-           calc(50%-50 px);transform
-           rotate
-           (90 deg);/* Rotate to point down */z-index
+          top :calc(50%-150 px);/* Adjust to position above the cat */left
+           calc(50%-100 px);/* Center horizontally */width
+           auto;padding
+           px;background-color
+           rgba(255,255,255,0.8);border-radius
+           px;text-align
+           center;font-size
+           px;color
+           #000;z-index
            (9999);/* Above everything else */}
+
+      .speech-bubble::after{
+         content:'';position:absolute;bottom:-20 px;left
+         calc(50%-10 px);border-width
+         px;border-style
+         solid;border-color
+         rgba(255,255,255,0.8)transparent transparent transparent;}
 
       @media only screen and (max-width :600 px){
           .container {
@@ -126,8 +128,7 @@
         <p>Join the Nyan Catvolution!</p>
         <a href="nyan.html" class="button" id="nyan-button">Get Your $NYAN Meow!</a>
     </div>
-    <div class="click-me-text">Click me for a party!</div> <!-- Text pointing to Nyan Cat -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Arrow_down.svg/1200px-Arrow_down.svg.png" class="arrow"> <!-- Arrow image -->
+    <div class="speech-bubble">Click me for a party!</div> <!-- Text bubble pointing to Nyan Cat -->
 
     <div id="custom-cursor"></div>
     <audio id="nyan-music" loop>
