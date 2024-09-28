@@ -3,43 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyan Cat Token - Blast from the Past!</title>
+    <title>Nyan Cat's Moon Mission</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #000000;
-            background-image: url('https://www.nyan.cat/cats/original.gif');
-            background-repeat: repeat;
-            font-family: 'Press Start 2P', cursive;
-            color: #FF00FF;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            cursor: none;
+        body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #003366;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    cursor: none;
+}
+        #stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            animation: twinkle 10s infinite linear;
         }
-        .container {
-            width: 90%;
+        @keyframes twinkle {
+            0% {background-position: 0 0, 0 0, 0 0;}
+            100% {background-position: 550px 550px, 350px 350px, 250px 250px;}
+        }
+        #nyan-cats {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 350px;
+            background: url('https://www.nyan.cat/cats/original.gif') repeat-x;
+            animation: slide 10s linear infinite;
+            z-index: 2;
+        }
+        @keyframes slide {
+            from { background-position: 0 0; }
+            to { background-position: -1000px 0; }
+        }
+        #content {
+            position: relative;
+            z-index: 3;
             max-width: 800px;
-            margin: 5% auto;
+            margin: 220px auto 0;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.7);
-            border: 5px solid #00FFFF;
             border-radius: 10px;
+            text-align: center;
         }
         h1 {
-            font-size: 24px;
+            font-size: 36px;
+            color: #FF66FF;
             text-shadow: 2px 2px #00FFFF;
             margin-bottom: 20px;
         }
         p {
-            font-size: 12px;
+            font-size: 20px;
             line-height: 1.6;
             margin-bottom: 15px;
         }
-        .button {
-            background-color: #FF00FF;
-            color: #FFFFFF;
-            
+        #custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .rainbow-trail {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: opacity 0.2s;
+        }
+        #bottom-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 1000;
+        }
+        .nyan-button {
+            width: 100px;
+            height: 60px;
+            background-image: url(https://i.postimg.cc/gkbm73RN/SIX-2032-A3-B3-671-B-44-BC-B497-D621-FF1-EE9-FD.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            color: #000;
+            text-shadow: 1px 1px #fff;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 5px;
+            text-decoration: none;
+        }
+#music-button {
+          position :fixed ;
+          top :20 px ;
+          right :20 px ;
+          width :80 px ;
+          height :80 px ;
+          background-image :url ('https://i.postimg.cc/tgJVM445/SIX-827-C9200-457-C-47-F1-A0-B3-FB3877-EB93-BA.png') ;
+          background-size :cover ;
+          border :none ;
+          cursor :pointer ;
+          display :flex ;
+          align-items :center ;
+          justify-content :center ;
+          color :#fff ;
+          font-size :10 px ;
+          text-shadow :1 px 1 px #000 ;
+       }
+
+        @media only screen and (max-width: 600px) {
+            #nyan-cats {
+                height: 100px;
+            }
+            #content {
+                margin-top: 120px;
+                padding: 10px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 16px;
+                line-height: 1.4;
+            }
+            #custom-cursor img {
+                width: 20px;
+                height: 15px;
+            }
+            #bottom-buttons {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .nyan-button {
+                width: 80px;
+                height: 48px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="stars"></div>
+    <div id="nyan-cats"></div>
+    <div id="content">
+        <h1>Nyan Cat's Moon Mission</h1>
+        <p>Nyan Cat, our beloved pop-tart feline, has been soaring through space since 2011. But now, it's time for an even greater adventure!</p>
+        <p>While animal-based memecoins are currently mooning left and right, let's not forget who the true OG is. Nyan Cat isn't just another animal meme - it's THE original internet sensation that captured hearts worldwide!</p>
+        <p>As the godfather of cat memes and the pioneer of rainbow-trailing space cats, Nyan Cat is ready to reclaim its throne. We're not just following trends; we're reviving the legend that started it all!</p>
+        <p>Nyan Cat is already a space explorer extraordinaire, we're taking things to the next level. Our mission? To reach the moon and beyond, just like Nyan Cat did with internet fame years ago!</p>
+        <p>Join us as we embark on this cosmic journey, spreading rainbows and joy across the galaxy, and showing these new memecoins how it's really done!</p>
+    </div>
+    <button id="music-button">Press me for music!</button>
+    <div id="custom-cursor"></div>
+    <div id="bottom-buttons">
+        <a href="https://pump.fun" class="nyan-button" target="_blank">pump.fun</a>
+        <a href="https://dexscreener.com" class="nyan-button" target="_blank">dexscreener</a>
+        <a href="https://t.me/your_telegram_link" class="nyan-button" target="_blank">telegram</a>
+        <a href="https://twitter.com/your_twitter_handle" class="nyan-button" target="_blank">twitter</a>
+    </div>
+    <audio id="nyan-music" loop>
+        <source src="https://www.nyan.cat/music/original.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+    const cursor = document.getElementById('custom-cursor');
+    cursor.innerHTML = '<img src="https://www.nyan.cat/cats/original.gif" width="30" height="20">';
+
+    const colors = ['#FF0000', '#FF9900', '#FFFF00', '#33FF00', '#0099FF', '#6633FF'];
+    let trails = [];
+
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+
+        const trail = document.createElement('div');
+        trail.className = 'rainbow-trail';
+        trail.style.left = e.clientX + 'px';
+        trail.style.top = e.clientY + 'px';
+        trail.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        document.body.appendChild(trail);
+        trails.push(trail);
+
+        if (trails.length > 20) {
+            const oldestTrail = trails.shift();
+            oldestTrail.remove();
+        }
+
+        setTimeout(() => {
+            trail.style.opacity = '0';
+        }, 100);
+
         setTimeout(() => {
             trail.remove();
         }, 200);
